@@ -1,0 +1,20 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.12.1"}
+        org.clojure/data.json {:mvn/version "2.5.1"}
+        aero/aero {:mvn/version "1.1.6"}
+        clj-http/clj-http {:mvn/version "3.12.3"}
+        cheshire/cheshire {:mvn/version "5.12.0"}
+
+        ;; Anthropic Java SDK (core API client)
+        com.anthropic/anthropic-java {:mvn/version "2.15.0"}
+
+        ;; Async utilities (for SDK async operations)
+        manifold/manifold {:mvn/version "0.4.3"}
+
+        ;; Logging
+        com.taoensso/timbre {:mvn/version "6.8.0"}
+        ;; SLF4J binding to suppress warnings from Anthropic Java SDK
+        org.slf4j/slf4j-nop {:mvn/version "2.0.13"}}
+
+ :aliases {:run {:main-opts ["-m" "agent.core"]}
+           :repl {:extra-paths ["dev"]}}}

@@ -1,0 +1,24 @@
+{
+ ;; Environment variable overrides
+ :api-key #env ANTHROPIC_API_KEY
+ :base-url #env ANTHROPIC_BASE_URL
+ :notion-token #env NOTION_TOKEN
+
+ ;; Model settings
+ :model "claude-opus-4-6"
+ :max-tokens 4096
+
+ ;; Subagent models
+ :subagent-model "haiku"
+
+ ;; Tools configuration
+ :allowed-tools ["Skill" "Task" "Write" "Bash" "WebSearch" "WebFetch"
+                 "mcp__notion__API-post-search" "mcp__notion__API-patch-block-children"]
+
+ ;; MCP servers
+ :mcp-servers {:notion {:command "npx"
+                        :args ["-y" "@notionhq/notion-mcp-server"]
+                        :env {:NOTION_TOKEN #env NOTION_TOKEN}}}
+
+ ;; Logging
+ :log-level :info}
